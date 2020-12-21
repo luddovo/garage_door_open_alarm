@@ -14,8 +14,8 @@
 //////////// config
 
 #define GARAGE_DOOR_DISTANCE 30  //(centimeters) distance of the door of the garage from the sensor
-#define CHECK_RATE 60  //(seconds) how often does the chip check for the door
-#define DOOR_CLOSE_TIME 300 //(seconds) after what time should the bot send an SMS
+#define CHECK_RATE 60UL  //(seconds) how often does the chip check for the door
+#define DOOR_CLOSE_TIME 300UL //(seconds) after what time should the bot send an SMS
 #define GSM_NUMBER "+420603453610"
 #define WARNING_MSG "The door is open!"
 
@@ -73,7 +73,7 @@ long getDistance() {
 
 int app_state = STATE_CLOSED;
 
-long timer_start, timer_end = 0;
+unsigned long timer_start, timer_end = 0;
 
 void setup()
 {
@@ -125,7 +125,7 @@ void loop()
           timer_start = timer_end;
         }
         else {
-          if ((timer_end - timer_start) / 1000 >= DOOR_CLOSE_TIME) {
+          if ((timer_end - timer_start) / 1000UL >= DOOR_CLOSE_TIME) {
             // send message
             sendSMS();
             PRINTLN("Alarm triggered!");
@@ -142,5 +142,5 @@ void loop()
   }
 
   // wait till next check
-  delay(CHECK_RATE * 1000);
+  delay(CHECK_RATE * 1000UL);
 }
