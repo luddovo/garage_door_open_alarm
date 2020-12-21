@@ -14,8 +14,8 @@
 //////////// config
 
 #define GARAGE_DOOR_DISTANCE 30  //(centimeters) distance of the door of the garage from the sensor
-#define CHECK_RATE 10  //(seconds) how often does the chip check for the door
-#define DOOR_CLOSE_TIME 60 //(seconds) after what time should the bot send an SMS
+#define CHECK_RATE 60  //(seconds) how often does the chip check for the door
+#define DOOR_CLOSE_TIME 300 //(seconds) after what time should the bot send an SMS
 #define GSM_NUMBER "+420603453610"
 #define WARNING_MSG "The door is open!"
 
